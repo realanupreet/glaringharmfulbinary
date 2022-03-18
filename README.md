@@ -1,4 +1,6 @@
 # // DSA with python //
+![](https://c.tenor.com/fMUOPRVdSzUAAAAd/python.gif)
+doing this course on dsa with python, so thought of making notes and posting them basically so i dont forget :P
 
 ## Lists ```[]```
 - mutable
@@ -79,7 +81,102 @@
   - ```book.values()``` will give out all the values
   - ```book.items()``` will give the items like ```[(1,'intro'),(2,'blogs')]```
  
-## 2-d arrays
+## 2-d arrays ```[[2,4],[5,6]]```
 - stores in 2 dimensions
-- eg ```[[1,3,5],[6,7,9],[8,4,7]]```
-- 
+- uses a list basically
+- eg ```array=[[1,3,5],[6,7,9],[8,4,7]]```
+- eg of inputing can be:
+  ```python
+
+  size=int(input())
+  arr=[]
+  
+  for x in range(size):
+    arr.append([
+      int(y) for y in input().split()
+    ])
+  
+  print(arr)
+  ```
+- eg for traversing the 2-d array
+```python
+arr = [[1,3,5],[6,9,2],[6,8,3]]
+for i in arr:
+  for j in i:
+    print(j,end=" ")
+  print()
+  
+```
+- eg deletion can be done by ```del(arr[i][j])```
+- array slicing eg ```arr[1:3] #index 1 to 2```
+- array length eg ```len(arr) #no. of rows```
+
+## // ```OOPS``` in python
+
+![](https://c.tenor.com/fp6gyOn-A5gAAAAd/oops-alexandria-ocasio-cortez.gif)
+
+- Object oriented programming
+- because somehow procedural way isn't cool
+- uses classes which have functions
+- class has init method
+- eg of class made
+```python
+
+class Employee:
+  def __init__(self,name='harry'):
+    self.name = name
+  def display(self):
+    print("name of employee is", self.name)
+
+first = Employee()
+first.display()
+```
+
+## // Time ```Complexity```
+![](https://c.tenor.com/FOxYFhcMTXIAAAAd/timeless-clock.gif)
+
+- describes the amount of computer time to take to run an algorithm
+- uses Big O notation basically
+- ```O(1)``` means for any input time taken is same ```fastest```
+- ```O(log n)``` means for n input then time is log n ```faster```
+- ```O(n)``` time increasing steadily as input size increasing ```normal```
+- ```O(n^2)``` time increasing very rapidly for input ```slow```
+
+## Stacks
+
+- uses lifo [ Last in, first out ]
+- push for adding data
+- pop for removing the top element
+- peek for getting value of top element
+- for array implimentation time complexity is O(1)
+- eg
+```python
+# stack nowww
+
+def create_stack():
+  stack=[]
+  return stack
+
+def push(stack,item):
+  stack.append(item)
+  print("pushed "+item)
+
+def check_empty():
+  return len(stack)==0
+
+def pop(stack):
+  if(check_empty(stack)):
+    return "Stack is empty"
+  else:
+    return stack.pop()
+
+stack=create_stack()
+push(stack,str(6))
+push(stack,str(5))
+pop(stack)
+print(stack)
+```
+
+## Queue
+
+- based on fifo [ first in, first out ]
