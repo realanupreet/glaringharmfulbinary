@@ -1,5 +1,7 @@
 # // DSA with python //
+
 ![](https://c.tenor.com/fMUOPRVdSzUAAAAd/python.gif)
+
 doing this course on dsa with python, so thought of making notes and posting them basically so i dont forget :P
 
 ## Lists ```[]```
@@ -180,3 +182,51 @@ print(stack)
 ## Queue
 
 - based on fifo [ first in, first out ]
+- enqueue for entering elements
+- dqueue for deletion of elements
+- time complexity is O(1)
+- eg
+```python
+class Queue:
+  def __init__(self):
+    self.queue=[]
+    print("Queue is created 🎉")
+    
+  def enqueue(self,item):
+    self.queue.append(item)
+
+  def dqueue(self):
+    if(len(self.queue)<1):
+      return None
+    return self.queue.pop(0)
+    
+  def display(self):
+    print(self.queue)
+
+tom = Queue()
+tom.enqueue(5)
+tom.enqueue(6)
+tom.enqueue(8)
+tom.enqueue(9)
+tom.display()
+tom.dqueue()
+tom.display()
+```
+## linked list
+- includes a series of connected nodes
+- each node stores data and address of other node
+- address of first node is ```HEAD```
+- next address of last node is ```NULL```
+- most efficient data structure
+- search for searching
+- insert for insertion
+- deletion for deletion
+- time complexity
+  - searching ```O(n)```
+  - insertion ```O(1)```
+  - deletion ```O(1)```
+- eg
+
+```python
+
+```
