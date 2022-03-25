@@ -167,3 +167,17 @@ tom.display()
 # cat.printlist()
 
 import recur
+
+
+class node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+    self.prev = None
+
+class DLL:
+  def __init__(self):
+    self.head=None
+
+  def print_list(self):
+    cur = self.head
