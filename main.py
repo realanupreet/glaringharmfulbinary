@@ -181,3 +181,20 @@ class DLL:
 
   def print_list(self):
     cur = self.head
+    while cur:
+      print(cur.data)
+      cur=cur.next
+  
+  def append(self, data):
+    if self.head is None:
+      new_node =node(data)
+      new_node.prev = None
+      self.head = new_node
+    else:
+      new_node = node(data)
+      cur=self.head
+      while cur.next:
+        cur=cur.next
+      cur.next = new_node
+      new_node.prev=cur
+      new_node.next=None
