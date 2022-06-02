@@ -1,0 +1,2 @@
+class student:
+    subject = "cs"

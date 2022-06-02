@@ -1,23 +1,21 @@
 i_array = [2, 4, 8, 1, 7]
 
-lowest = {'value': 100, 'day': 100}
-highest = {'value': -1, 'day': -1}
-print(lowest['value'])
+# lowest = {'value': 100, 'day': 100}
+# highest = {'value': -1, 'day': -1}
+# print(lowest['value'])
 
 
-def max_profit(input_array):
-    for ele in range(len(input_array)):
-        print("element is", ele)
-        if lowest['value'] > input_array[ele]:
-            lowest['value'] = input_array[ele]
-            lowest['day'] = ele
-        if highest['value'] < input_array[ele]:
-            highest['value'] = input_array[ele]
-            highest['day'] = ele
+def max_profit(prices):
+    lowest_till_now = 100000
+    best_profit = 0
 
-    print("input array is", input_array)
-    print("Highest value is", highest['value'], "on day", highest['day'])
-    print("lowest value is", lowest['value'], "on day", lowest['day'])
+    for price in prices:
+        if lowest_till_now > price:
+            lowest_till_now = price
+        elif best_profit < price - lowest_till_now:
+            best_profit = price - lowest_till_now
+
+    return best_profit
 
 
-max_profit(i_array)
+print(max_profit(i_array))
