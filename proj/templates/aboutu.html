@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %} About {{about.name.capitalize()}} {%
+endblock %} {% block content %}
+
+<nav>
+  <ul>
+    <li><strong>Brand</strong></li>
+  </ul>
+  <ul>
+    <li><a href="/" data-tooltip="Tooltip">Home</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+<hgroup>
+  <h1>{{ about.name.capitalize() }}</h1>
+  <h3>@{{ about.name }}</h3>
+</hgroup>
+<article class="grid">
+  <div>
+    <img {{about.imglink}} alt="" />
+    <figcaption>Picture of <a {{ about.link }}>{{about.name}}</a></figcaption>
+  </div>
+  <div>{{about.bio}}</div>
+</article>
+{% endblock %}
