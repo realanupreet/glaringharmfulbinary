@@ -1,30 +1,10 @@
 {% extends 'base.html' %} {% block title %} Home {% endblock %} {% block content
 %}
-<header>
-  <nav>
-    <ul>
-      <li><strong>Brand</strong></li>
-    </ul>
-    <ul>
-      <li><a href="/" data-tooltip="Tooltip">Home</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </nav>
-</header>
-<hgroup>
-  <h1>Hello this is the home page</h1>
-  <h3>This is test y'all</h3>
-</hgroup>
-<a href="/about">Hello</a>
-<article>
-  <div class="grid">
-    <p>hello</p>
-    <p>hello</p>
-  </div>
-</article>
-<p>hello y'all</p>
 
-<button>Hello</button>
+<hgroup>
+  <h1>Hey, Welcome!</h1>
+  <h3>We get you the best products</h3>
+</hgroup>
 
 <blockquote>
   "Best ever"
@@ -36,28 +16,20 @@
 <table role="grid">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th>as</th>
-      <th data-tooltip="beyond your imagination">df</th>
-      <th>#d</th>
-      <th>dd</th>
+      <th scope="col">#id</th>
+      <th>Product</th>
+      <th>Price</th>
     </tr>
   </thead>
   <tbody>
+    {% for product in products %}
     <tr>
-      <th>#</th>
-      <th>as</th>
-      <th>df</th>
-      <th>#d</th>
-      <th>dd</th>
+      <th>{{product.id}}</th>
+      <th>{{product.name}}</th>
+      <th>${{product.price}}</th>
     </tr>
-    <tr>
-      <th>#</th>
-      <th>as</th>
-      <th>df</th>
-      <th>#d</th>
-      <th>dd</th>
-    </tr>
+    {% endfor %}
   </tbody>
 </table>
+<button>Hello</button>
 {% endblock %}

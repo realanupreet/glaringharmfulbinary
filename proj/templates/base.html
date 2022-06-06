@@ -17,6 +17,18 @@
     </style>
   </head>
   <body>
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">
+      <header>
+        <nav>
+          <ul>
+            <li><strong>Brand</strong></li>
+          </ul>
+          <ul>
+            <li><a href="/" data-tooltip="Tooltip">Home</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </nav>
+      </header>
+      {% block content %} {% endblock %}</main>
   </body>
 </html>
