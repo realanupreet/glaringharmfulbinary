@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div x-data x-bind:class="$store.darkMode.on && 'bg-gray-800'">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis at
+      culpa ad saepe. Dignissimos tempore quisquam nisi repellat eveniet cum
+      sunt expedita temporibus eum praesentium esse sapiente nesciunt amet
+      voluptate, sint, numquam perspiciatis modi quibusdam voluptatum dicta
+      impedit atque. Beatae!
+
+      <button x-on:click="$store.darkMode.toggle()">toggle dark</button>
+    </div>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.store("darkMode", {
+          on: false,
+          toggle() {
+            this.on = !this.on;
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+      integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+      .red {
+        background-color: rgb(235, 216, 255);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Alpine js demo</h1>
+      <div
+        x-data="{open: true, 
+        name: 'brad',
+        search: '123',
+        posts : [
+        {title:'post one'},
+        {title:'post2 one'},
+        {title:'post23 one'},
+        {title:'post234 one'},
+        {title:'post2345 one'}
+        ]
+    }"
+      >
+        <button x-on:click="open = !open" x-bind:class="open ? 'red' : ''">
+          toggle
+        </button>
+        <div x-show="open" x-transition x-cloak>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam
+            commodi tempore nam ea magni assumenda dolore enim iste eveniet
+            aliquam.
+          </p>
+        </div>
+        <div>
+          value of name is <em><span x-text="name"></span></em>
+        </div>
+
+        <div x-effect="console.log(open)"></div>
+
+        <input x-model="234" type="text" placeholder="search for something " />
+        <template x-if="open">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+            vero optio porro quibusdam. Nulla corporis rerum itaque ut ipsa,
+            nihil amet rem, accusamus ullam quos quasi exercitationem delectus
+            provident, officiis recusandae vero! Quasi quas fuga sed, nulla
+            nostrum sequi quos.
+          </p>
+        </template>
+
+        <h3>Posts</h3>
+        <template x-for="post in posts">
+          <p x-text="post.title">bs</p>
+        </template>
+        <button x-on:click="posts.push({title: 'New post '+open})">
+          Add post
+        </button>
+
+        <div x-ref="text"></div>
+
+        <button x-on:click="$refs.text.innerText='Hellow world'">click</button>
+        <div x-html="(await axios.get('./partial.html')).data"></div>
+
+        <button x-on:click="$el.innerHTML = 'Hellowwordl'">Replace text</button>
+
+        <div x-init="$watch('posts',value=> console.log(value))"></div>
+
+        <!-- dispatch  -->
+        <div @notify="alert('you have been notified')">
+          <button x-on:click="$dispatch('notify')">Notify</button>
+        </div>
+        <!-- data -->
+        <button x-on:click="getLatestPost($data)">posts</button>
+        <!-- end -->
+      </div>
+    </div>
+    <script>
+      function getLatestPost(posts) {
+        console.log(posts);
+      }
+    </script>
+  </body>
+</html>
