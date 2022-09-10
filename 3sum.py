@@ -7,5 +7,5 @@ for i in range(len(nums)):
                 print(f"i {nums[i]} j {nums[j]} k {nums[k]}")
                 if sorted([nums[i], nums[j], nums[k]]) not in ans:
                     ans.append(sorted([nums[i], nums[j], nums[k]]))
-            # print(i,j,k)
+            print(i,j,k)
 print(ans)
